@@ -1,0 +1,141 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Written on the Wall II Conjecture 372: total domination, vertex covers and path covers of trees"
+  description: >-
+    A Lean 4 proof of Written on the Wall II Conjecture 372 of Graffiti.pc on its defined domain:
+    every finite tree T on more than two vertices with path cover number p(T) ≥ 2 satisfies
+    γ_t(T) ≥ τ(T) / (p(T) − 1), where γ_t is the total domination number and τ the vertex cover
+    number. Two variants are also proved: τ(T) ≤ γ_t(T) for trees of order at least two that are
+    covered by at most two disjoint paths, and τ(T) ≤ γ_t(T) · max(1, p(T) − 1) for every tree of
+    order at least two. The statements are those of the Formal Conjectures repository.
+  authors:
+    - name: "8xp4jtb47i5h"
+      github: "8xp4jtb47i5h"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - name: "8xp4jtb47i5h"
+      github: "8xp4jtb47i5h"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C69", "05C05", "05C70", "05C38"]
+
+sources:
+  - title: "Written on the Wall II: Conjectures of Graffiti.pc, Conjecture 372"
+    authors:
+      - "Ermelinda DeLaViña"
+    id: "WOWII-372"
+    type: "web conjecture list"
+    location: "http://cms.uhd.edu/faculty/delavinae/research/wowII/open.html"
+    relationship: "formalizes"
+    note: >-
+      Conjecture 372 (18 February 2009). The August 2009 note following the entry already settles
+      p(T) ≥ 3 through γ_t(T) ≥ 2(τ(T) + 1)/3; this bound is proved here as well.
+    license: "unknown"
+    author_endorsement: "not-contacted"
+  - title: "Total domination and vertex covers of trees covered by two paths: A resolution of Written on the Wall II Conjecture 372 on its defined domain"
+    authors:
+      - "Jonas J. Gebendorfer"
+    id: "doi:10.13140/RG.2.2.25035.55849"
+    type: "preprint"
+    location: "https://doi.org/10.13140/RG.2.2.25035.55849"
+    relationship: "independently-proves"
+    note: >-
+      Manuscript of 28 October 2026 proving the same three statements on paper. The case
+      p(T) ≥ 3 follows the same edge count as its Lemma 1. For p(T) ≤ 2 the formal proof was
+      planned before the manuscript's argument was read and is organized differently: it numbers
+      the vertices of each covering path, bounds the dominating vertices on each path by counting
+      neighbouring positions, and settles the tight case by a parity count instead of the
+      manuscript's arm-by-arm case analysis.
+    license: "unknown"
+    author_endorsement: "not-contacted"
+  - title: "Formal Conjectures: WrittenOnTheWallII/GraphConjecture372.lean"
+    authors:
+      - "The Formal Conjectures Authors"
+    id: "google-deepmind/formal-conjectures@9097e2f90e66d2f6244209cb1c07f7120d17ec53"
+    type: "formalization"
+    location: "https://github.com/google-deepmind/formal-conjectures/blob/9097e2f90e66d2f6244209cb1c07f7120d17ec53/FormalConjectures/WrittenOnTheWallII/GraphConjecture372.lean"
+    relationship: "other"
+    note: >-
+      Source of the three Lean statements, copied verbatim, and of the definitions of total
+      domination (FormalConjecturesForMathlib/Combinatorics/SimpleGraph/Domination.lean) and path
+      covers (FormalConjecturesForMathlib/Combinatorics/SimpleGraph/PathCover.lean), copied
+      verbatim under the Apache License 2.0. The statements there carry no proof.
+    license: "Apache-2.0"
+    author_endorsement: "not-contacted"
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Complete: all three statements of the Formal Conjectures file are proved, with no sorry and
+    only the standard axioms. Not formalized: the manuscript's more general Lemma 2 (trees whose
+    vertices of degree at least three lie on one edge) and its sharpness examples.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["Claude Opus 5.5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        AI agent working in a local shell with Lean 4, Lake and Mathlib. It found the proof
+        strategy, checked candidate lemmas against exhaustive C enumerations of all trees up to
+        22 vertices (nauty gentreeg), and wrote and repaired the Lean code by compiling it
+        repeatedly.
+      cost:
+        wall_time: "about four hours, including the search for a suitable problem"
+        spend_usd: "subscription-based"
+        hardware: "local machine (8 cores, 64 GB RAM)"
+      prompting_notes: >-
+        The human asked the agent to find and settle an approachable open graph conjecture, then
+        to formalize parts 1 and 2 of the proof in Lean, then to prepare this submission.
+  spend_usd: "subscription-based"
+  notes: >-
+    The Lean code was written by the AI agent under the direction of the responsible maintainer,
+    who chose the problem area and approved each stage. Correctness rests on the Lean kernel and
+    Comparator; no human has reviewed the proof line by line.
+
+fidelity:
+  divergences: >-
+    None known for the Formal Conjectures statements, which are reproduced verbatim. Relative to
+    the printed conjecture: the ratio is undefined on paths, so the main statement assumes
+    p(T) ≥ 2 and uses real division, as in Formal Conjectures; the universally defined variant
+    covers paths with the factor max(1, p(T) − 1).
+
+review:
+  status: "self-assessed"
+  reviewers:
+    - "none"
+  notes: >-
+    The statements were compared character by character with the Formal Conjectures file, and the
+    definitions with the Formal Conjectures library. The informal argument was checked against an
+    exhaustive enumeration of all trees with at most 22 vertices before formalization. No
+    independent human mathematical review has been performed.
+
+alignment:
+  namespace: "WrittenOnTheWallII.GraphConjecture372"
+  statements:
+    - source: "WOWII Conjecture 372; Gebendorfer, Theorem 1(2)"
+      lean: "WrittenOnTheWallII.GraphConjecture372.conjecture372"
+      module: "Challenge"
+      status: "proved"
+      note: "Trees on more than two vertices with p(T) ≥ 2: τ(T) / (p(T) − 1) ≤ γ_t(T)."
+    - source: "Gebendorfer, Theorem 1(1)"
+      lean: "WrittenOnTheWallII.GraphConjecture372.conjecture372.variants.two_paths"
+      module: "Challenge"
+      status: "proved"
+      note: "Trees of order at least two with p(T) ≤ 2: τ(T) ≤ γ_t(T)."
+    - source: "Gebendorfer, Theorem 1(3)"
+      lean: "WrittenOnTheWallII.GraphConjecture372.conjecture372.variants.regularized"
+      module: "Challenge"
+      status: "proved"
+      note: "Trees of order at least two: τ(T) ≤ γ_t(T) · max(1, p(T) − 1)."
+
+acknowledgements: >-
+  Mathlib; the Formal Conjectures project for the statements and definitions; nauty (gentreeg) for
+  the tree enumeration used to test lemmas; Palomar's starter template.

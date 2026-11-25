@@ -1,0 +1,21 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "WrittenOnTheWallII.GraphConjecture372.conjecture372",
+    "WrittenOnTheWallII.GraphConjecture372.conjecture372.variants.two_paths",
+    "WrittenOnTheWallII.GraphConjecture372.conjecture372.variants.regularized"
+  ],
+  "definition_names": [
+    "SimpleGraph.IsPathCover",
+    "SimpleGraph.pathCoverNumber",
+    "SimpleGraph.IsTotalDominating",
+    "SimpleGraph.totalDominationNumber"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
