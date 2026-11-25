@@ -13,10 +13,11 @@ number and `p(T)` the path cover number. The following are proved:
 | `conjecture372.variants.two_paths` | `τ(T) ≤ γ_t(T)` when `T` has at least two vertices and `p(T) ≤ 2` |
 | `conjecture372.variants.regularized` | `τ(T) ≤ γ_t(T) · max(1, p(T) − 1)` when `T` has at least two vertices |
 
-The result was first proved on paper by J. J. Gebendorfer
+A written proof of the same statements is given in J. J. Gebendorfer's manuscript
 ([doi:10.13140/RG.2.2.25035.55849](https://doi.org/10.13140/RG.2.2.25035.55849), 28 October
-2026). This repository supplies a machine-checked proof. Its argument for `p(T) ≤ 2` is
-organized differently from the manuscript's.
+2026). The case `p(T) ≥ 3` follows from the bound `γ_t(T) ≥ 2(τ(T) + 1)/3`, which the August 2009
+note to the conjecture records. This repository supplies a machine-checked proof. Its argument
+for `p(T) ≤ 2` is organized differently from the manuscript's.
 
 ## Repository map
 
