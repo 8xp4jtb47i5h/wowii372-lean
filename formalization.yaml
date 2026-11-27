@@ -11,11 +11,11 @@ project:
     covered by at most two disjoint paths, and τ(T) ≤ γ_t(T) · max(1, p(T) − 1) for every tree of
     order at least two. The statements are those of the Formal Conjectures repository.
   authors:
-    - name: "8xp4jtb47i5h"
+    - name: "Alexander Wilms"
       github: "8xp4jtb47i5h"
   license: "Apache-2.0"
   responsible_maintainers:
-    - name: "8xp4jtb47i5h"
+    - name: "Alexander Wilms"
       github: "8xp4jtb47i5h"
 
 classification:
